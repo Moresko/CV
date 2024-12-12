@@ -10,10 +10,10 @@
 }
 
 :root{
-  --one-color: #080808;
+  --one-color: #2E2D2D;
   --two-color: #131313;
-  --text-color: white;
-  --main-color: #00ffee;
+  --text-color: #F2E1FD;
+  --main-color: #A59ADB;
 }
 
 html{
@@ -24,6 +24,25 @@ html{
 body{
   background: var(--one-color);
   color: var(--text-color);
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 90%,
+    var(--main-color) 90%
+  );
+  background-size: 75px 75px; 
+  opacity: 0.1; 
+  z-index: -1;
 }
 
 .headerStart{
@@ -38,6 +57,7 @@ body{
   justify-content: space-between;
   align-items: center;
   z-index: 5;
+  border-bottom: 1px solid var(--main-color);
 }
 
 .logo{
@@ -50,10 +70,6 @@ body{
 
 .logo:hover{
   transform: scale(1.1);
-}
-
-.logo span{
-  text-shadow: 0 0 25px var(--main-color);
 }
 
 .navbarStart a{
@@ -98,6 +114,21 @@ section{
   margin-top: 3rem;
 }
 
+.switch {
+  background-color: var(--one-color);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 20px;
+  border: 1px solid var(--text-color);
+}
+
+.switch:hover {
+  background-color: var(--main-color);
+}
+
 span{
   color: var(--main-color);
 }
@@ -119,24 +150,12 @@ span{
   line-height: 1;
 }
 
-.home-image{
-  border-radius: 50%;
-}
-
 .home-image img{
   position: relative;
   top: 3rem;
   width: 32vw;
-  border-radius: 50%;
-  box-shadow: 0 0 25px var(--main-color);
-  cursor: pointer;
+  border-radius:  5%;
   transition: 0.4s ease-in-out;
-}
-
-.home-image img:hover{
-  box-shadow: 0 0 25px var(--main-color),
-              0 0 50px var(--main-color),
-              0 0 100px var(--main-color);
 }
 
 .home-info p{
@@ -164,7 +183,6 @@ span{
 .soc-icons a:hover{
   color: var(--text-color);
   transform: scale(1.3)translateY(-5px);
-  box-shadow:  0 0 25px var(--main-color);
   background-color: var(--main-color);
 }
 
@@ -172,7 +190,6 @@ span{
   display: inline-block;
   padding: 1rem 2.8rem;
   background: var(--main-color);
-  box-shadow: 0 0 25px var(--main-color);
   font-size: 1.6rem;
   color: black;
   border: 2px solid transparent;
@@ -184,7 +201,6 @@ span{
 
 .grp:hover{
   transform: scale(1.05);
-  box-shadow: 0 0 50px var(--main-color);
 }
 
 .groups{
@@ -197,11 +213,9 @@ span{
   background-color: black;
   color: var(--main-color);
   border: 2px solid var(--main-color);
-  box-shadow: 0 0 25px transparent;
 }
 
 .groups a:nth-of-type(2):hover{
-  box-shadow: 0 0 25px var(--main-color);
   background-color: var(--main-color);
   color: black;
 }
@@ -231,6 +245,25 @@ span{
   border-left: 3px solid var(--one-color);
   right: -8px;
   animation: cursor 0.6s infinite, typing 20s  infinite;
+}
+
+.infoAbout{
+  margin-top: 3rem;
+}
+
+.infoTog{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.infoTog p{
+  margin-left: 10px;
+}
+
+.iconInfo{
+  font-size: 15px;
 }
 
 @keyframes cursor{
@@ -286,4 +319,305 @@ span{
   85%{
     width: calc(100% + 8px);
   }
+}
+
+.twoHeader{
+  font-size: 5rem;
+  gap: 10px;
+  margin: 5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.educationBoxes {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; 
+}
+
+.eduBox {
+  width: 48%;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.3);;
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px 20px 20px;
+  text-align: center;
+  border-radius: 8px;
+  border: 2px solid var(--main-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eduBox:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.eduCol{
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+}
+
+.eduBox h1{
+  font-size: 2rem;
+  margin-bottom: 4rem;
+}
+
+.eduIconTog{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.eduIconTog img{
+  width: 3vw;
+  height: 3vw;
+}
+
+.eduYears{
+  margin-bottom: 5rem;
+}
+
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 80px;
+}
+
+.projectItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.projectName {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.projectView {
+  font-size: 1rem;
+  color: var(--main-color);
+  text-decoration: none;
+  border: 1px solid var(--main-color);
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.projectView:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0;
+}
+
+.svgExpIcon img{
+  width: 90px;
+  height: 90px;
+}
+
+.svgExpIcon{
+  position: relative;
+  display: inline-block;
+}
+
+.svgExpIcon:hover{
+  transform: scale(1.1);
+}
+
+.svgExpIconsContainer {
+  display: flex;
+  justify-content: center;  
+  align-items: center;     
+  flex-wrap: wrap;          
+  gap: 20px;                
+  width: 100%;  
+  margin-top: 20px;            
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 90%;  
+  left: 50%;
+  transform: translateX(-50%);  
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  visibility: hidden; 
+  opacity: 0;  
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.svgExpIcon:hover .tooltip {
+  visibility: visible;  
+  opacity: 1;  
+  /* transform: scale(1.1); */
+}
+
+.jobBoxes {
+  display: flex;
+  flex-direction: column; 
+  gap: 20px; 
+  margin-top: 20px;
+  align-items: center; 
+}
+
+.jobBox {
+  width: 80%; 
+  height: 200px;
+  padding: 20px 20px 20px 20px;
+  border: 2px solid var(--main-color); 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.3); 
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 13px;
+}
+
+.jobBox:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.jobBox h1{
+  margin-bottom: 3rem;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--one-color);
+  color: var(--main-color);
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  z-index: 9999; 
+  pointer-events: auto; 
+  border: 1px solid var(--main-color);
+}
+
+.scroll-to-top:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+
+@media (max-width: 1285px) {
+  html{
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 991px) {
+  header{
+    padding: 2rem 3%;
+  }
+
+  section{
+    padding: 10rem 3% 2rem;
+  }
+}
+
+@media (max-width: 895px) {
+  .hamburger-icon{
+    display: block;
+  }
+
+  .navbarStart {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    padding: 1rem 3%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-left: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    border-right: 2px solid var(--main-color);
+    transition: transform 0.3s ease;
+  }
+  
+  .navbarStart.active {
+    display: block;
+  }
+
+  .navbarStart a{
+    display: block;
+    font-size: 2rem;
+    margin: 3rem 0;
+    color: white;
+  }
+
+  .homeP{
+    flex-direction: column-reverse;
+    margin: 5rem 4rem;
+  }
+
+  .home-info h3{
+    font-size: 2.6rem;
+  }
+
+  .home-info h1{
+    font-size: 8rem;
+    margin-top: 3rem;
+  }
+
+  .home-info p{
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .home-image img{
+    width: 56vw;
+  }
+
+  .educationBoxes{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .eduBox{
+    width: 80%;
+    height: 400px;
+  }
+
+  .infoTog p{
+    margin-left: 8px;
+  }
+
+  .scroll-to-top {
+    bottom: 30px;
+    right: 30px;
+    padding: 8px 11px;
+    font-size: 10px;
+  }
+  
 }

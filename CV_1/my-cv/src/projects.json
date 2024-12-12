@@ -1,0 +1,23 @@
+[
+    {
+      "name": "Autoflex",
+      "repo": "https://github.com/dzuris/autoflex"
+    },
+    {
+      "name": "Student tournaments",
+      "repo": "https://github.com/ponik73/iis"
+    },
+    {
+        "name": "Calculator",
+        "repo": "https://github.com/ponik73/ivsProj2"
+    },
+    {
+        "name": "Simulation of heat energy production",
+        "repo": "https://github.com/dzuris/IMS-project"
+    },
+    {
+      "name": "Language translator",
+      "repo": "https://github.com/dzuris/ifj-compiler"
+    }
+  ]
+  
